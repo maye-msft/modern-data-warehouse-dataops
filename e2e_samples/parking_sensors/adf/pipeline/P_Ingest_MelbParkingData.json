@@ -61,6 +61,10 @@
 				"name": "Set infilefolder",
 				"type": "SetVariable",
 				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
 				"userProperties": [],
 				"typeProperties": {
 					"variableName": "infilefolder",
@@ -265,7 +269,7 @@
 			}
 		},
 		"annotations": [],
-		"lastPublishTime": "2021-08-03T05:18:18Z"
+		"lastPublishTime": "2024-11-18T06:25:30Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }

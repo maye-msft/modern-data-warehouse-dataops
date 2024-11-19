@@ -1,0 +1,9 @@
+{
+	"name": "mdwdops-adf-dev-mayey",
+	"location": "southeastasia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "27d34667-cc0f-4263-93c0-eea77019115a",
+		"tenantId": "16b3c013-d300-468d-ac64-7eda0820b6d3"
+	}
+}
