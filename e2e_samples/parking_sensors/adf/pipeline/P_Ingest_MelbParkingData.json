@@ -109,7 +109,7 @@
 						"referenceName": "Ds_REST_MelbParkingData",
 						"type": "DatasetReference",
 						"parameters": {
-							"relativeurl": "dtpv-d4pf.json"
+							"relativeurl": "MelbParkingBayData.json"
 						}
 					}
 				],
@@ -163,7 +163,7 @@
 						"referenceName": "Ds_REST_MelbParkingData",
 						"type": "DatasetReference",
 						"parameters": {
-							"relativeurl": "wuf8-susg.json"
+							"relativeurl": "MelbParkingBayData.json"
 						}
 					}
 				],
@@ -260,6 +260,53 @@
 					"referenceName": "Ls_AzureSQLDW_01",
 					"type": "LinkedServiceReference"
 				}
+			},
+			{
+				"name": "DownloadSensorData_copy1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "RestSource",
+						"httpRequestTimeout": "00:01:40",
+						"requestInterval": "00.00:00:00.010"
+					},
+					"sink": {
+						"type": "AzureBlobFSSink"
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "Ds_REST_MelbParkingData",
+						"type": "DatasetReference",
+						"parameters": {
+							"relativeurl": "dtpv-d4pf.json"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "Ds_AdlsGen2_MelbParkingData",
+						"type": "DatasetReference",
+						"parameters": {
+							"infilefolder": {
+								"value": "@variables('infilefolder')",
+								"type": "Expression"
+							},
+							"infilename": "MelbParkingSensorData.json",
+							"container": "datalake/data/lnd"
+						}
+					}
+				]
 			}
 		],
 		"variables": {
