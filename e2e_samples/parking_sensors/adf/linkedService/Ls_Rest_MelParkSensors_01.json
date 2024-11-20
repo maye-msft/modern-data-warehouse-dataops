@@ -1,13 +1,13 @@
 {
 	"name": "Ls_Rest_MelParkSensors_01",
-	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
 		"annotations": [],
 		"type": "RestService",
 		"typeProperties": {
-			"url": "https://data.melbourne.vic.gov.au/resource/",
+			"url": "https://raw.githubusercontent.com/Azure-Samples/modern-data-warehouse-dataops/refs/heads/main/e2e_samples/parking_sensors/src/ddo_transform/data/",
 			"enableServerCertificateValidation": true,
 			"authenticationType": "Anonymous"
 		}
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/linkedservices"
 }
