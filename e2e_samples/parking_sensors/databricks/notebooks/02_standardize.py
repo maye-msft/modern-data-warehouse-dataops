@@ -21,7 +21,7 @@ import datetime
 
 load_id = loadid
 loaded_on = datetime.datetime.now()
-base_path = os.path.join('dbfs:/mnt/datalake/data/lnd/', infilefolder)
+base_path = 'dbfs:/mnt/datalake/data/lnd/'
 parkingbay_filepath = os.path.join(base_path, "MelbParkingBayData.json")
 sensors_filepath = os.path.join(base_path, "MelbParkingSensorData.json")
 

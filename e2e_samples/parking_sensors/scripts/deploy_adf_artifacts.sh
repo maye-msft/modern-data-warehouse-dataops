@@ -38,6 +38,10 @@ set -o nounset
 # DATAFACTORY_NAME
 # ADF_DIR
 
+echo "AZURE_SUBSCRIPTION_ID: $AZURE_SUBSCRIPTION_ID"
+echo "RESOURCE_GROUP_NAME: $RESOURCE_GROUP_NAME"
+echo "DATAFACTORY_NAME: $DATAFACTORY_NAME"
+echo "ADF_DIR: $ADF_DIR"
 
 # Consts
 apiVersion="2018-06-01"
@@ -49,6 +53,7 @@ createLinkedService () {
     declare name=$1
     echo "Creating ADF LinkedService: $name"
     adfLsUrl="${adfFactoryBaseUrl}/linkedservices/${name}?api-version=${apiVersion}"
+    echo "adfLsUrl $adfLsUrl"
     az rest --method put --uri "$adfLsUrl" --body @"${ADF_DIR}"/linkedService/"${name}".json
 }
 createDataset () {

@@ -55,7 +55,8 @@ databricks secrets create-scope --json "{\"scope\": \"$scope_name\", \"scope_bac
 
 # Upload notebooks
 echo "Uploading notebooks..."
-databricks_folder_name="/Workspace/Users/${USER_NAME,,}"
+USER_NAME_LOWER=$(echo "${USER_NAME}" | tr '[:upper:]' '[:lower:]')
+databricks_folder_name="/Workspace/Users/${USER_NAME_LOWER}"
 echo "databricks_folder_name: ${databricks_folder_name}"
 
 databricks workspace import "$databricks_folder_name/00_setup.py" --file "./databricks/notebooks/00_setup.py" --format SOURCE --language PYTHON --overwrite
